@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bistro 26 - Authentic dining with fresh ingredients and a warm atmosphere."
+    />
+    <title>Bistro 26 | Authentic Dining Experience</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Bistro 26 Logo" class="nav-logo" />
+        <a href="#" class="logo-text">BISTRO<span>26</span></a>
+      </div>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="tel:+123456789" class="btn-call">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            Call Now
+          </a>
+        </div>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="fade-in">
+          Taste the <span class="highlight">Excellence</span>
+        </h1>
+        <p class="fade-in delay">
+          Fresh ingredients, vibrant flavors, and an unforgettable dining
+          experience.
+        </p>
+        <div class="hero-btns fade-in delay-2">
+          <a href="menu.html" class="btn btn-primary">View Our Menu</a>
+          <a href="#contact" class="btn btn-secondary">Book a Table</a>
+        </div>
+      </div>
+      <div class="hero-image-container fade-in delay">
+        <!-- Using the generated food platter image -->
+        <img
+          src="assets/hero_food.png"
+          alt="Delicious Food Platter"
+          class="hero-img"
+        />
+      </div>
+    </header>
+
+    <!-- About / Interior Section -->
+    <section id="about" class="section about-section">
+      <div class="container about-container">
+        <div class="about-text">
+          <h2 class="section-title">
+            Our <span class="text-accent">Vibe</span>
+          </h2>
+          <p>
+            At Bistro 26, we believe that great food deserves a great
+            atmosphere. Our interior is designed to be cozy, stylish, and
+            welcoming. Whether you're here for a romantic dinner or a family
+            gathering, you'll feel right at home.
+          </p>
+          <p>
+            We use only the freshest locally sourced ingredients to create
+            dishes that are as beautiful as they are delicious.
+          </p>
+        </div>
+        <div class="about-image">
+          <!-- Using the generated interior image -->
+          <img
+            src="assets/interior.png"
+            alt="Restaurant Interior"
+            class="rounded-img shadow"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu-section bg-light">
+      <div class="container">
+        <h2 class="section-title text-center">
+          Chef's <span class="text-primary">Favorites</span>
+        </h2>
+        <div class="menu-grid">
+          <!-- Item 1 -->
+          <div class="menu-item">
+            <div class="item-header">
+              <h3>Grilled Ribeye Steak</h3>
+              <span class="price">$32</span>
+            </div>
+            <p class="item-desc">
+              Premium cut served with roasted root vegetables and our signature
+              red wine reduction.
+            </p>
+            <div class="item-tags">
+              <span class="tag tag-red">Meat</span>
+              <span class="tag tag-green">GF</span>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="menu-item">
+            <div class="item-header">
+              <h3>Lemon Herb Salmon</h3>
+              <span class="price">$28</span>
+            </div>
+            <p class="item-desc">
+              Fresh Atlantic salmon grilled to perfection, served with asparagus
+              and quinoa.
+            </p>
+            <div class="item-tags">
+              <span class="tag tag-yellow">Fish</span>
+              <span class="tag tag-green">Healthy</span>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="menu-item">
+            <div class="item-header">
+              <h3>Vegetarian Risotto</h3>
+              <span class="price">$24</span>
+            </div>
+            <p class="item-desc">
+              Creamy Arborio rice with seasonal garden vegetables, parmesan, and
+              truffle oil.
+            </p>
+            <div class="item-tags">
+              <span class="tag tag-green">Veg</span>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="menu-item">
+            <div class="item-header">
+              <h3>Spicy Chicken Pasta</h3>
+              <span class="price">$22</span>
+            </div>
+            <p class="item-desc">
+              Penne pasta tossed in a spicy roasted pepper sauce with grilled
+              chicken breast.
+            </p>
+            <div class="item-tags">
+              <span class="tag tag-red">Spicy</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <a href="#" class="btn btn-outline">View Full Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container contact-wrapper">
+        <div class="contact-info">
+          <h2>Visit Us</h2>
+          <p>We are looking forward to serving you.</p>
+          <ul class="info-list">
+            <li><strong>📍 Address:</strong> 123 Foodie Lane, Gastrotown</li>
+            <li><strong>📞 Phone:</strong> (555) 123-4567</li>
+            <li><strong>✉️ Email:</strong> hello@bistro26.com</li>
+          </ul>
+          <div class="hours-box">
+            <h3>Opening Hours</h3>
+            <div id="hours-display">
+              <!-- JS will populate this or default content -->
+              <p>Mon-Sun: 11:00 AM - 10:00 PM</p>
+            </div>
+            <p id="open-status" class="status-badge">Checking status...</p>
+          </div>
+        </div>
+
+        <div class="contact-form-container">
+          <h3>Make a Reservation</h3>
+          <form id="reservation-form">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group two-col">
+              <input type="date" id="date" required />
+              <input type="time" id="time" required />
+            </div>
+            <div class="form-group">
+              <select id="guests">
+                <option value="" disabled selected>Number of Guests</option>
+                <option value="2">2 People</option>
+                <option value="4">4 People</option>
+                <option value="6">6+ People</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Book Table
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <h4>Bistro 26</h4>
+          <p>Exceptional food, exceptional mood.</p>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="copyright">&copy; 2026 Bistro 26. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

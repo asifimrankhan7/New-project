@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bistro 26 - Full Menu. Explore our delicious authentic dishes."
+    />
+    <title>Menu | Bistro 26</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Bistro 26 Logo" class="nav-logo" />
+        <a href="index.html" class="logo-text">BISTRO<span>26</span></a>
+      </div>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="menu.html" class="active">Menu</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="tel:+123456789" class="btn-call">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            Call Now
+          </a>
+        </div>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header
+      class="page-header"
+      style="
+        padding-top: 100px;
+        padding-bottom: 50px;
+        text-align: center;
+        background: #f9fafb;
+      "
+    >
+      <div class="container">
+        <h1 class="section-title">
+          Our <span class="text-primary">Full Menu</span>
+        </h1>
+        <p>Explore our wide variety of dishes, prepared with love.</p>
+      </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="full-menu" class="section menu-section">
+      <div class="container">
+        <!-- JS will populate this -->
+        <div class="menu-grid" id="full-menu-grid"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <h4>Bistro 26</h4>
+          <p>Exceptional food, exceptional mood.</p>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="copyright">&copy; 2026 Bistro 26. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

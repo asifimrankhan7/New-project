@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bistro 26 - Your Cart. Review your delicious choices."
+    />
+    <title>Your Cart | Bistro 26</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Cart specific styles - inline for now to avoid messing with style.css too much, 
+         can be moved if user prefers */
+      .cart-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      .cart-table th,
+      .cart-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+      }
+      .cart-table th {
+        background-color: #f8f9fa;
+        font-weight: 700;
+      }
+      .cart-summary {
+        text-align: right;
+        padding: 20px;
+        background: #fdfdfd;
+        border-radius: 8px;
+      }
+      .total-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #e76f51; /* Matching existing primary color roughly */
+        margin-bottom: 15px;
+      }
+      .empty-cart-msg {
+        text-align: center;
+        padding: 40px;
+        color: #777;
+      }
+      .btn-remove {
+        color: #e63946;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .btn-remove:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Bistro 26 Logo" class="nav-logo" />
+        <a href="index.html" class="logo-text">BISTRO<span>26</span></a>
+      </div>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html" class="active">Cart</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="tel:+123456789" class="btn-call">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            Call Now
+          </a>
+        </div>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header
+      class="page-header"
+      style="
+        padding-top: 100px;
+        padding-bottom: 50px;
+        text-align: center;
+        background: #f9fafb;
+      "
+    >
+      <div class="container">
+        <h1 class="section-title">
+          Your <span class="text-primary">Cart</span>
+        </h1>
+        <p>Review your order before checking out.</p>
+      </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section id="cart-section" class="section">
+      <div class="container cart-container">
+        <!-- JS will populate this -->
+        <div id="cart-content">
+          <!-- Dynamic Cart Content -->
+        </div>
+
+        <div id="cart-summary" class="cart-summary" style="display: none">
+          <div class="total-price">
+            Total: <span id="cart-total">$0.00</span>
+          </div>
+          <button class="btn btn-primary" onclick="placeOrder()">
+            Place Order
+          </button>
+          <button
+            class="btn btn-outline"
+            onclick="clearCart()"
+            style="margin-left: 10px"
+          >
+            Clear Cart
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <h4>Bistro 26</h4>
+          <p>Exceptional food, exceptional mood.</p>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="copyright">&copy; 2026 Bistro 26. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Inline script for cart specific logic initiation if needed,
+      // but main logic will be in script.js to keep it clean.
+      // We'll call renderCart() from script.js on DOMContentLoaded
+    </script>
+  </body>
+</html>
