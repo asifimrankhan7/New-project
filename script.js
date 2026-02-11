@@ -6,6 +6,70 @@ const navLinks = document.querySelectorAll('.nav-links li a');
 const reservationForm = document.getElementById('reservation-form');
 const openStatus = document.getElementById('open-status');
 
+// Inject Toast Container and Modal HTML
+const toastContainer = document.createElement('div');
+toastContainer.className = 'toast-container';
+document.body.appendChild(toastContainer);
+
+const modalOverlay = document.createElement('div');
+modalOverlay.className = 'modal-overlay';
+modalOverlay.innerHTML = `
+  <div class="modal-content">
+    <h3 style="margin-bottom:1rem; font-family: var(--font-heading);">Please Confirm</h3>
+    <p id="modal-message">Are you sure?</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" style="background:#ccc; border:none; color:#333;" id="modal-cancel">Cancel</button>
+      <button class="btn btn-primary" id="modal-confirm">Confirm</button>
+    </div>
+  </div>
+`;
+document.body.appendChild(modalOverlay);
+
+// Utility Functions
+function showToast(message, type = 'info') {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    // Simple icon matching
+    let icon = 'ℹ️';
+    if(type === 'success') icon = '✅';
+    if(type === 'error') icon = '❌';
+    
+    toast.innerHTML = `<span>${icon}</span> ${message}`;
+    toastContainer.appendChild(toast);
+    
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 100);
+    
+    // Remove after 3s
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+let confirmCallback = null;
+const modalConfirmBtn = document.getElementById('modal-confirm');
+const modalCancelBtn = document.getElementById('modal-cancel');
+const modalMsg = document.getElementById('modal-message');
+
+function showConfirmModal(message, onConfirm) {
+    modalMsg.textContent = message;
+    modalOverlay.classList.add('active');
+    confirmCallback = onConfirm;
+}
+
+function closeModal() {
+    modalOverlay.classList.remove('active');
+    confirmCallback = null;
+}
+
+modalConfirmBtn.addEventListener('click', () => {
+    if (confirmCallback) confirmCallback();
+    closeModal();
+});
+
+modalCancelBtn.addEventListener('click', closeModal);
+
 // sticky navigation logic
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -141,7 +205,7 @@ function addToOrder(name, price, inputId) {
     // Save back to local storage
     localStorage.setItem('cart', JSON.stringify(cart));
 
-    alert(`Added ${qty} x ${name} to your cart!`);
+    showToast(`Added ${qty} x ${name} to your cart!`, 'success');
 }
 
 // Render after DOM load
@@ -202,7 +266,7 @@ if (reservationForm) {
 
         // Simple Validation logic
         if(!guests) {
-            alert('Please select number of guests');
+            showToast('Please select number of guests', 'error');
             return;
         }
 
@@ -214,7 +278,7 @@ if (reservationForm) {
         btn.disabled = true;
 
         setTimeout(() => {
-            alert(`Thank you, ${name}! Your table for ${guests} people on ${date} at ${time} has been reserved.`);
+            showToast(`Thank you, ${name}! Table for ${guests} reserved.`, 'success');
             reservationForm.reset();
             btn.textContent = originalText;
             btn.disabled = false;
@@ -273,10 +337,11 @@ function removeFromCart(index) {
 }
 
 function clearCart() {
-    if(confirm('Are you sure you want to clear your cart?')) {
+    showConfirmModal('Are you sure you want to clear your cart?', () => {
         localStorage.removeItem('cart');
         renderCart();
-    }
+        showToast('Cart cleared', 'info');
+    });
 }
 
 function placeOrder() {
